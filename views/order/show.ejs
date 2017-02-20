@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="page-header">Ordered Item</h1>
+
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h3><strong><%= orderItem.deviceId %>: </strong></h3>
+        <h4><%= orderItem.description %></h4>
+        <h4>Completed:
+          <% if (orderItem.completed == true) { %>
+            <span class="label label-success">True</span>
+          <% } else if (orderItem.completed == false) { %>
+            <span class="label label-danger">False</span>
+          <% } %>
+        </h4>
+
+        <a class="btn btn-warning" href=<%= "/order/" + orderItem._id + "/edit" %>>Edit</a>
+
+        <form class="deleteForm "method="POST" action=<%= "/order/" + orderItem._id + "?_method=DELETE" %>>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+
+      </li>
+    </ul>
+
+</div>

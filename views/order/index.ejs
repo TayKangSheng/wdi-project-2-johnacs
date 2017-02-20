@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="page-header">ESP Tests</h1>
+
+<ul class="list-group">
+  <% orders.forEach(function (orderItem) { %>
+    <li class="list-group-item">
+      <strong><%= orderItem.deviceId %>: </strong>
+      <%= orderItem.description %>
+      || Completed:
+      <% if (orderItem.completed == true) { %>
+        <span class="label label-success">True</span>
+      <% } else if (orderItem.completed == false) { %>
+        <span class="label label-danger">False</span>
+      <% } %>
+      <a class="pull-right" href=<%= "/order/" + orderItem._id %>>View</a>
+    </li>
+  <% }) %>
+</ul>
+
+</div>
