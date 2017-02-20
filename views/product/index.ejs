@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="page-header">All Products</h1>
+
+<ul class="list-group">
+  <% products.forEach(function (product) { %>
+    <li class="list-group-item">
+      <strong><%= product.title %>: </strong>
+      <%= product.description %>
+      <a class="pull-right" href=<%= "/product/" + product._id %>>View</a>
+    </li>
+  <% }) %>
+</ul>
+
+</div>

@@ -1,43 +1,50 @@
-let Order = require('../models/order')
+let Order = require('../models/user')
 
-let orderController = {
+let authController = {
 
   list: (req, res) => {
-    Order.find({}, (err, output) => {
+    Order.find({}, (err, orders) => {
       if (err) throw err
-      res.render('order/index', { orders: output })
+      res.render('order/index', { orders: orders })
     })
   },
 
-  // new: (req, res) => {
-  //   res.render('order/create')
-  // },
-
   create: (req, res) => {
+    // let deviceId = req.params.id
+    // console.log(deviceId);
+    // res.send(deviceId)
+
+
     let newOrder = new Order({
-      title: req.body.title,
-      description: req.body.description
+      deviceId: req.body.deviceId,
+      // description: req.description,
+      completed: false
     })
     newOrder.save(function (err, savedEntry) {
       if (err) throw err
-      res.redirect('/order')
+      Order.find({}, (err, orders) => {
+        if (err) throw err
+        res.render('order/index', { orders: orders })
+      })
     })
+
   },
 
   show: (req, res) => {
-    // console.log('show order');
-    // res.send('show order')
     Order.findById(req.params.id, (err, output) => {
       if (err) throw err
-      res.render('order/show', { order: output })
+      res.render('order/show', { orderItem: output })
     })
   },
 
+  new: (req, res) => {
+    res.render('order/create')
+  },
 
   edit: (req, res) => {
-    Order.findById(req.params.id, (err, output) => {
+    Order.findById(req.params.id, (err, orderItem) => {
       if (err) throw err
-      res.render('order/edit', { order: output })
+      res.render('order/edit', { orderItem: orderItem })
     })
   },
 
@@ -63,4 +70,4 @@ let orderController = {
 
 }
 
-module.exports = orderController
+module.exports = authController

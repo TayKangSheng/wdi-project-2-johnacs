@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="page-header">Edit Product</h1>
+  <pre><%=product%></pre>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h3><strong><%= product.title %>: </strong></h3>
+      <h4><%= product.description %></h4>
+
+      <a class="btn btn-warning" href=<%= "/product/" + product._id + "/edit" %>>Edit</a>
+
+      <form class="deleteForm "method="POST" action=<%= "/product/" + product._id + "?_method=DELETE" %>>
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+
+    </li>
+  </ul>
+</div>

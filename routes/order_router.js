@@ -4,19 +4,16 @@ const orderController = require('../controllers/order_controller')
 
 Router.get('/', orderController.list)
 
+// Router.get('/new', orderController.new)
+
 Router.get('/:id', orderController.show)
 
-Router.post('/device', orderController.create)
+Router.get('/:id/edit', orderController.edit)
 
+Router.post('/', orderController.create)
 
+Router.put('/:id', orderController.update)
 
-// Router.get('/new', orderController.new)
-//
-// Router.get('/:id/edit', orderController.edit)
-//
-//
-// Router.put('/:id', orderController.update)
-//
-// Router.delete('/:id', orderController.delete)
+Router.delete('/:id', orderController.delete)
 
 module.exports = Router
