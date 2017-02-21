@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="page-header">All Devices</h1>
+
+<ul class="list-group">
+  <% devices.forEach(function (device) { %>
+    <li class="list-group-item">
+    <pre><%=device%></pre>
+      <strong><%= device.deviceId %>: </strong>
+      <%= device.product[0].title %>
+      <a class="pull-right" href=<%= "/device/" + device._id %>>View</a>
+    </li>
+  <% }) %>
+</ul>
+
+</div>

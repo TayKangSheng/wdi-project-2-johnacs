@@ -11,7 +11,7 @@ let productController = {
 
   new: (req, res) => {
     // res.send('new')
-    res.render('product/create')
+    res.render('product/new')
   },
 
   create: (req, res) => {
