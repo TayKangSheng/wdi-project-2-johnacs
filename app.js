@@ -40,6 +40,8 @@ app.use('/product', product)
 const device = require('./routes/device_router')
 app.use('/device', device)
 
+const customer = require('./routes/customer_router')
+app.use('/customer', customer)
 
 // development error handler
 // will print stacktrace

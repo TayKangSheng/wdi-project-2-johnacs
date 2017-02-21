@@ -1,12 +1,28 @@
 let Customer = require('../models/customer')
+let Device = require('../models/device')
 
 let customerController = {
 
   list: (req, res) => {
-    Customer.find({}, (err, customers) => {
-      if (err) throw err
-      res.render('customer/index', { customers: customers })
-    })
+
+    Device.find({},
+      (err, output2) => {
+        if (err) throw err
+
+        let deviceList = output2
+
+        Customer.find({})
+        .populate('deviceId')
+        .exec(
+          (err, output) => {
+            if (err) throw err
+            res.render('customer/', {
+              customers: output,
+              devices: deviceList
+            })
+          })
+      })
+
   },
 
   create: (req, res) => {
@@ -14,37 +30,75 @@ let customerController = {
     // console.log(deviceId);
     // res.send(deviceId)
 
-
     let newCustomer = new Customer({
-      deviceId: req.body.deviceId,
-      // john
+      fName: req.body.fName,
+      lName: req.body.lName,
+      email: req.body.email,
+      address: req.body.address,
+      contactNumber: req.body.contact,
+      deviceId: req.body.deviceId
     })
-    newCustomer.save(function (err, savedEntry) {
+    newCustomer.save((err, savedEntry)=>{
       if (err) throw err
       Customer.find({}, (err, customers) => {
         if (err) throw err
-        res.render('order/index', { customers: customers })
+        res.redirect('customer/')
       })
     })
 
   },
 
   show: (req, res) => {
-    Customer.findById(req.params.id, (err, output) => {
-      if (err) throw err
-      res.render('customer/show', { customer: output })
-    })
+
+    Device.find({},
+      (err, output2) => {
+        if (err) throw err
+
+        let deviceList = output2
+
+        Customer.findById(req.params.id)
+        .populate('deviceId')
+        .exec(
+          (err, output) => {
+            if (err) throw err
+            res.render('customer/show', {
+              customer: output,
+              customerDevices: output.deviceId,
+              devices: deviceList
+            })
+          })
+      })
+
   },
 
   new: (req, res) => {
-    res.render('customer/create')
+    Device.find({}, function (err, output) {
+      if (err) throw err
+      res.render('customer/new', {
+        devices: output
+      })
+    })
   },
 
   edit: (req, res) => {
-    Customer.findById(req.params.id, (err, customer) => {
-      if (err) throw err
-      res.render('customer/edit', { customer: customer })
-    })
+    Device.find({},
+      (err, output2) => {
+        if (err) throw err
+
+        let deviceList = output2
+
+        Customer.findById(req.params.id)
+        .populate('deviceId')
+        .exec(
+          (err, output) => {
+            if (err) throw err
+            res.render('customer/edit', {
+              customer: output,
+              devices: deviceList
+            })
+          })
+      })
+
   },
 
   update: (req, res) => {
@@ -53,6 +107,7 @@ let customerController = {
     }, {
       fName: req.body.fName,
       lName: req.body.lName,
+      email: req.body.email,
       address: req.body.address,
       contactNumber: req.body.contactNumber
     }, (err, customer) => {

@@ -3,9 +3,14 @@ const mongoose = require('mongoose')
 let customerSchema = new mongoose.Schema({
   fName: String,
   lName: String,
+  email: {type: String, required: true},
   address: String,
   contactNumber: Number,
   deviceId: [{type: mongoose.Schema.Types.ObjectId, ref:'Device'}]
+})
+
+customerSchema.virtual('fullName').get(function () {
+  return this.fName + ' ' + this.lName
 })
 
 let Customer = mongoose.model('Customer', customerSchema)

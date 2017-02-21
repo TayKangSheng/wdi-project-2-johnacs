@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="page-header">All Customers</h1>
+<ul class="list-group">
+  <% customers.forEach(function (customer) { %>
+    <li class="list-group-item">
+    <pre><%=customer%></pre>
+      <h3><strong><%= customer.fullName %>: </strong></h3>
+      <p><%= customer.email %></p>
+      <p><%= customer.address %></p>
+      <p><%= customer.contactNumber %></p>
+      <h4>Devices owned: <%= customer.deviceId[0].deviceId %></h5>
+      <p><%= customer.deviceId %></p>
+      <a class="pull-right" href=<%= "/customer/" + customer._id %>>View</a>
+    </li>
+  <% }) %>
+</ul>
+
+</div>

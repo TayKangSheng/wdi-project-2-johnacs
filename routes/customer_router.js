@@ -10,7 +10,7 @@ Router.get('/:id', customerController.show)
 
 Router.get('/:id/edit', customerController.edit)
 
-Router.post('/device', customerController.create)
+Router.post('/', customerController.create)
 
 Router.put('/:id', customerController.update)
 

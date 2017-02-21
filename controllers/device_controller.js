@@ -23,14 +23,17 @@ let deviceController = {
   },
 
   create: (req, res) => {
-    Device.create({
+    let newDevice = new Device({
       deviceId: req.body.deviceId,
       product: req.body.id
-    }, function (err, output) {
+    })
+
+    newDevice.save((err,savedEntry)=> {
       if (err) throw err
       res.redirect('/device')
     }
   )
+
   },
 
   show: (req, res) => {
