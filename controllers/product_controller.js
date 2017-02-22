@@ -21,7 +21,8 @@ let productController = {
 
     let newProduct = new Product({
       title: req.body.title,
-      description: req.body.description
+      description: req.body.description,
+      imageUrl: req.body.imageUrl
     })
     newProduct.save(function (err, savedEntry) {
       if (err) throw err
@@ -50,7 +51,8 @@ let productController = {
       _id: req.params.id
     }, {
       title: req.body.title,
-      description: req.body.description
+      description: req.body.description,
+      imageUrl: req.body.imageUrl
       //john
     }, (err, product) => {
       if (err) throw err
