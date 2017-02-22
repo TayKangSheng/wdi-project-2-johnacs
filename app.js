@@ -17,9 +17,6 @@ const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
 mongoose.connect(process.env.MONGODB_URI)
-// mongoose connection part
-// mongoose.connect('mongodb://john:myyenny@ds147799.mlab.com:47799/wdi')
-// mongoose.connect('mongodb://localhost/pronto')
 
 const port = process.env.PORT || 4000
 
