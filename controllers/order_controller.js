@@ -1,26 +1,38 @@
 let Order = require('../models/order')
+let Device = require('../models/device')
+let Customer = require('../models/customer')
 
 let orderController = {
 
   list: (req, res) => {
-    Order.find({}, (err, output) => {
-      if (err) throw err
-      res.render('order/index', { orders: output })
-    })
+    Order.find({})
+    .populate('deviceId')
+    .populate('productId')
+    .populate('customerId')
+    .exec(
+     (err, output) => {
+       if (err) next(err)
+       res.render('order/', { orders: output })
+     })
   },
 
-  // new: (req, res) => {
-  //   res.render('order/create')
-  // },
-
   create: (req, res) => {
-    let newOrder = new Order({
-      title: req.body.title,
-      description: req.body.description
-    })
-    newOrder.save(function (err, savedEntry) {
-      if (err) throw err
-      res.redirect('/order')
+    Device.find({deviceId: req.body.deviceId}, (err, output) => {
+      // console.log(output);
+
+      let deviceId = output[0]._id
+      let customer_Id = output[0].customerId[0]
+      let product_Id = output[0].productId[0]
+
+      let newOrder = new Order({
+        deviceId: deviceId,
+        productId: product_Id,
+        customerId: customer_Id
+      })
+      newOrder.save(function (err, savedEntry) {
+        if (err) throw err
+        res.redirect('/order')
+      })
     })
   },
 
@@ -32,7 +44,6 @@ let orderController = {
       res.render('order/show', { order: output })
     })
   },
-
 
   edit: (req, res) => {
     Order.findById(req.params.id, (err, output) => {

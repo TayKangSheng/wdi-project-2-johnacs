@@ -3,21 +3,28 @@
 
 <ul class="list-group">
   <% orders.forEach(function (order) { %>
+    <pre><%=order%></pre>
     <li class="list-group-item">
-      <strong><%= order.order %>: </strong>
+      <strong><%= order.productId[0].title %> </strong>
     </li>
-
-    // <li class="list-group-item">
-    //   <strong><%= order.deviceId %>: </strong>
-    //   <%= order.description %>
-    //   || Completed:
-    //   <% if (order.completed == true) { %>
-    //     <span class="label label-success">True</span>
-    //   <% } else if (order.completed == false) { %>
-    //     <span class="label label-danger">False</span>
-    //   <% } %>
-    //   <a class="pull-right" href=<%= "/order/" + order._id %>>View</a>
-    // </li>
+    <li class="list-group-item">
+      <strong><%= order.customerId[0].fullName %> </strong>
+    </li>
+    <li class="list-group-item">
+      <strong><%= order.customerId[0].address %> </strong>
+    </li>
+    <li class="list-group-item">
+      <strong><%= order.customerId[0].contactNumber %> </strong>
+    </li>
+    <li class="list-group-item">
+      Order Status :
+      <% if (order.completed == true) { %>
+        <span class="label label-success">True</span>
+      <% } else if (order.completed == false) { %>
+        <span class="label label-danger">False</span>
+      <% } %>
+      <a class="pull-right" href=<%= "/order/" + order._id %>>View</a>
+    </li>
   <% }) %>
 </ul>
 

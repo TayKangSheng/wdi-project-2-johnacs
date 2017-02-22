@@ -4,11 +4,16 @@
       <label for="deviceId">Device ID</label>
       <input type="text" class="form-control" id="deviceIdInput" placeholder="deviceId" name="deviceId">
     </div>
-    <select name="id">
+    <select name="productId">
       <% products.forEach(function (product) {%>
         <option value="<%=product.id%>"><%= product.title %></option>
       <% }) %>
   </select>
+  <select name="customerId">
+    <% customers.forEach(function (customer) {%>
+      <option value="<%=customer.id%>"><%= customer.fullName %></option>
+    <% }) %>
+</select>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>

@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 
 let deviceSchema = new mongoose.Schema({
   deviceId: String,
-  product: [{type: mongoose.Schema.Types.ObjectId, ref:'Product'}]
+  productId: [{type: mongoose.Schema.Types.ObjectId, ref:'Product'}],
+  customerId: [{type: mongoose.Schema.Types.ObjectId, ref:'Customer'}]
 })
 
 let Device = mongoose.model('Device', deviceSchema)

@@ -6,7 +6,6 @@
     <li class="list-group-item">
       <h3><strong><%= customer.fullName %>: </strong></h3>
       <h4>Devices owned: </h4>
-      <p><%= customer.deviceId %></p>
       <a class="btn btn-warning" href=<%= "/customer/" + customer._id + "/edit" %>>Edit</a>
 
       <form class="deleteForm "method="POST" action=<%= "/customer/" + customer._id + "?_method=DELETE" %>>

@@ -5,8 +5,7 @@ let customerSchema = new mongoose.Schema({
   lName: String,
   email: {type: String, required: true},
   address: String,
-  contactNumber: Number,
-  deviceId: [{type: mongoose.Schema.Types.ObjectId, ref:'Device'}]
+  contactNumber: Number
 })
 
 customerSchema.virtual('fullName').get(function () {

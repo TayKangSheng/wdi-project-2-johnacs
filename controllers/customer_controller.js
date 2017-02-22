@@ -1,103 +1,61 @@
 let Customer = require('../models/customer')
-let Device = require('../models/device')
+
 
 let customerController = {
 
   list: (req, res) => {
 
-    Device.find({},
-      (err, output2) => {
+    Customer.find({},
+      (err, output) => {
         if (err) throw err
-
-        let deviceList = output2
-
-        Customer.find({})
-        .populate('deviceId')
-        .exec(
-          (err, output) => {
-            if (err) throw err
             res.render('customer/', {
-              customers: output,
-              devices: deviceList
+              customers: output
             })
           })
-      })
+  },
+
+  show: (req, res) => {
+    // res.send('show')
+
+    Customer.findById(req.params.id, (err, output) => {
+      if (err) throw err
+      res.render('customer/show', { customer: output })
+    })
+
 
   },
 
   create: (req, res) => {
-    // let deviceId = req.params.id
-    // console.log(deviceId);
-    // res.send(deviceId)
 
     let newCustomer = new Customer({
       fName: req.body.fName,
       lName: req.body.lName,
       email: req.body.email,
       address: req.body.address,
-      contactNumber: req.body.contact,
-      deviceId: req.body.deviceId
+      contactNumber: req.body.contact
     })
+
     newCustomer.save((err, savedEntry)=>{
       if (err) throw err
-      Customer.find({}, (err, customers) => {
-        if (err) throw err
         res.redirect('customer/')
       })
-    })
 
   },
 
-  show: (req, res) => {
-
-    Device.find({},
-      (err, output2) => {
-        if (err) throw err
-
-        let deviceList = output2
-
-        Customer.findById(req.params.id)
-        .populate('deviceId')
-        .exec(
-          (err, output) => {
-            if (err) throw err
-            res.render('customer/show', {
-              customer: output,
-              customerDevices: output.deviceId,
-              devices: deviceList
-            })
-          })
-      })
-
-  },
 
   new: (req, res) => {
-    Device.find({}, function (err, output) {
-      if (err) throw err
-      res.render('customer/new', {
-        devices: output
-      })
-    })
+
+      res.render('customer/new')
   },
 
+
   edit: (req, res) => {
-    Device.find({},
-      (err, output2) => {
-        if (err) throw err
+    // res.send('edit')
 
-        let deviceList = output2
-
-        Customer.findById(req.params.id)
-        .populate('deviceId')
-        .exec(
-          (err, output) => {
-            if (err) throw err
-            res.render('customer/edit', {
-              customer: output,
-              devices: deviceList
-            })
-          })
-      })
+    Customer.findById(req.params.id, (err, output) => {
+      if (err) throw err
+      res.render('customer/edit', { customer: output })
+    })
 
   },
 

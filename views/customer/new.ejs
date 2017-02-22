@@ -14,11 +14,6 @@
       <input type="text" class="form-control" id="contactInput" placeholder="Contact Number" name="contact">
 
     </div>
-    <select name="deviceId">
-      <% devices.forEach(function (device) {%>
-        <option value="<%=device.id%>"><%= device.deviceId %></option>
-      <% }) %>
-  </select>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>

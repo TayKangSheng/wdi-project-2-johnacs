@@ -5,7 +5,8 @@
   <ul class="list-group">
     <li class="list-group-item">
       <h3><strong><%= device.deviceId %>: </strong></h3>
-      <h4><%= device.product[0].title %></h4>
+      <h4><%= device.productId[0].title %></h4>
+      <h4><%= device.customerId.fullName %></h4>
 
       <a class="btn btn-warning" href=<%= "/device/" + device._id + "/edit" %>>Edit</a>
 
