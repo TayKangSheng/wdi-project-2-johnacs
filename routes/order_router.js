@@ -12,7 +12,7 @@ Router.get('/:id', isNotLoggedIn, orderController.show)
 
 Router.get('/:id/edit', isNotLoggedIn, orderController.edit)
 
-Router.post('/', isNotLoggedIn, orderController.create)
+Router.post('/', orderController.create)
 
 Router.put('/:id', isNotLoggedIn, orderController.update)
 

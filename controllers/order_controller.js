@@ -31,7 +31,7 @@ let orderController = {
       })
       newOrder.save(function (err, savedEntry) {
         if (err) throw err
-        res.redirect('/order')
+        res.redirect('/')
       })
     })
   },
