@@ -8,27 +8,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Pronto</a>
+      <a class="navbar-brand" href="/"><img src="/images/logo.png" alt="Pronto" class="logo"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/order">View All Orders <span class="sr-only">(current)</span></a></li>
+        <li><a href="/order">View All Orders <span class="sr-only">(current)</span></a></li>
         <li><a href="/customer">View All Customers <span class="sr-only">(current)</span></a></li>
         <li><a href="/customer/new">Add New Customer <span class="sr-only">(current)</span></a></li>
         <li><a href="/device">View All Devices <span class="sr-only">(current)</span></a></li>
         <li><a href="/device/new">Add New Device <span class="sr-only">(current)</span></a></li>
         <li><a href="/product">View All Products <span class="sr-only">(current)</span></a></li>
         <li><a href="/product/new">Add New Product <span class="sr-only">(current)</span></a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Register now</a></li>
-      </ul>
+        <%if (!authenticated) { %>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/logout">Logout</a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Register now</a></li>
         </ul>
+        <% } else {%>
+          <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><%=userdata.local.email%></a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        <% } %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

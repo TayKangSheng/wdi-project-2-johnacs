@@ -3,9 +3,12 @@
   <pre><%=order%></pre>
   <ul class="list-group">
     <li class="list-group-item">
-      <h3><strong><%= order.order %>: </strong></h3>
-      <h4><%= order.order %></h4>
-      <h4>Completed:
+      <h3><strong>Order Id: <%= order._id %> </strong></h3>
+        <p><%= order.productId[0].title %> </p>
+        <p><%= order.customerId[0].fullName %> </p>
+        <p><%= order.customerId[0].address %> </p>
+        <p><%= order.customerId[0].contactNumber %> </p>
+      <h4>Order Status:
         <% if (order.completed == true) { %>
           <span class="label label-success">True</span>
         <% } else if (order.completed == false) { %>

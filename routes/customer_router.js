@@ -2,18 +2,20 @@ const express = require('express')
 const Router = express.Router()
 const customerController = require('../controllers/customer_controller')
 
-Router.get('/', customerController.list)
+let isNotLoggedIn = require('./isnotloggedin')
 
-Router.get('/new', customerController.new)
+Router.get('/', isNotLoggedIn, customerController.list)
 
-Router.get('/:id', customerController.show)
+Router.get('/new', isNotLoggedIn, customerController.new)
 
-Router.get('/:id/edit', customerController.edit)
+Router.get('/:id', isNotLoggedIn, customerController.show)
 
-Router.post('/', customerController.create)
+Router.get('/:id/edit', isNotLoggedIn, customerController.edit)
 
-Router.put('/:id', customerController.update)
+Router.post('/', isNotLoggedIn, customerController.create)
 
-Router.delete('/:id', customerController.delete)
+Router.put('/:id', isNotLoggedIn, customerController.update)
+
+Router.delete('/:id', isNotLoggedIn, customerController.delete)
 
 module.exports = Router

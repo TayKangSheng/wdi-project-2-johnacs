@@ -39,25 +39,37 @@ let orderController = {
   show: (req, res) => {
     // console.log('show order');
     // res.send('show order')
-    Order.findById(req.params.id, (err, output) => {
-      if (err) throw err
-      res.render('order/show', { order: output })
-    })
+
+    Order.findById(req.params.id)
+    .populate('deviceId')
+    .populate('productId')
+    .populate('customerId')
+    .exec(
+     (err, output) => {
+       if (err) next(err)
+       res.render('order/show', { order: output })
+     })
+
   },
 
   edit: (req, res) => {
-    Order.findById(req.params.id, (err, output) => {
-      if (err) throw err
-      res.render('order/edit', { order: output })
-    })
+
+    Order.findById(req.params.id)
+    .populate('deviceId')
+    .populate('productId')
+    .populate('customerId')
+    .exec(
+     (err, output) => {
+       if (err) next(err)
+       res.render('order/edit', { order: output })
+     })
+
   },
 
   update: (req, res) => {
     Order.findOneAndUpdate({
       _id: req.params.id
     }, {
-      order: req.body.order,
-      description: req.body.description,
       completed: req.body.completed
     }, (err, orderItem) => {
       if (err) throw err

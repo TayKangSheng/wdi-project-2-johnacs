@@ -2,18 +2,20 @@ const express = require('express')
 const Router = express.Router()
 const orderController = require('../controllers/order_controller')
 
-Router.get('/', orderController.list)
+let isNotLoggedIn = require('./isnotloggedin')
+
+Router.get('/', isNotLoggedIn, orderController.list)
 
 // Router.get('/new', orderController.new)
 
-Router.get('/:id', orderController.show)
+Router.get('/:id', isNotLoggedIn, orderController.show)
 
-Router.get('/:id/edit', orderController.edit)
+Router.get('/:id/edit', isNotLoggedIn, orderController.edit)
 
-Router.post('/', orderController.create)
+Router.post('/', isNotLoggedIn, orderController.create)
 
-Router.put('/:id', orderController.update)
+Router.put('/:id', isNotLoggedIn, orderController.update)
 
-Router.delete('/:id', orderController.delete)
+Router.delete('/:id', isNotLoggedIn, orderController.delete)
 
 module.exports = Router

@@ -2,18 +2,20 @@ const express = require('express')
 const Router = express.Router()
 const deviceController = require('../controllers/device_controller')
 
-Router.get('/', deviceController.list)
+let isNotLoggedIn = require('./isnotloggedin')
 
-Router.get('/new', deviceController.new)
+Router.get('/', isNotLoggedIn, deviceController.list)
 
-Router.get('/:id', deviceController.show)
+Router.get('/new', isNotLoggedIn, deviceController.new)
 
-Router.get('/:id/edit', deviceController.edit)
+Router.get('/:id', isNotLoggedIn, deviceController.show)
 
-Router.post('/', deviceController.create)
+Router.get('/:id/edit', isNotLoggedIn, deviceController.edit)
 
-Router.put('/:id', deviceController.update)
+Router.post('/', isNotLoggedIn, deviceController.create)
 
-Router.delete('/:id', deviceController.delete)
+Router.put('/:id', isNotLoggedIn, deviceController.update)
+
+Router.delete('/:id', isNotLoggedIn, deviceController.delete)
 
 module.exports = Router
