@@ -1,21 +1,18 @@
-<div class="container">
-  <h1 class="page-header">All Devices</h1>
-
-<ul class="list-group">
-  <% devices.forEach(function (device) { %>
-    <li class="list-group-item">
-    <!-- <pre><%=device%></pre> -->
-      <strong>Device ID : <%= device.deviceId %></strong>
-      <%= device.productId[0].title %>
-    </li>
-    <li class="list-group-item">
-      <strong>Owned by : </strong>
-      <%= device.customerId[0].fullName %>
-    </li>
-    <li class="list-group-item">
-      <a class="pull-right" href=<%= "/device/" + device._id %>>View</a>
-    </li>
-  <% }) %>
-</ul>
-
-</div>
+<% include ../partials/header_device %>
+<section class="section green">
+    <div class="container">
+        <div class="row">
+            <h1 class="page-header">Devices</h1>
+            <ul class="list-group">
+                <% devices.forEach(function (device) { %>
+                      <div class="span5 paddingsmall">
+                        <p><strong>Device ID: </strong><%= device.deviceId %></p>
+                        <p><strong>Linked to: </strong><%= device.productId[0].title %></p>
+                        <p><strong>Owned by : </strong><%= device.customerId[0].fullName %></p>
+                        <p><a class="pull-right btn btn-info" href=<%="/device/" + device._id %>>View</a></p>
+                    </div>
+                    <% }) %>
+            </ul>
+        </div>
+    </div>
+</section>

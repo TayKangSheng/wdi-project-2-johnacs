@@ -1,15 +1,26 @@
-<div class="container">
-  <h1 class="page-header">Edit Order</h1>
-  <p><%= order.productId[0].title %> </p>
-  <p><%= order.customerId[0].fullName %> </p>
-  <p><%= order.customerId[0].address %> </p>
-  <p><%= order.customerId[0].contactNumber %> </p>
-  <form action=<%= "/order/" + order.id + "?_method=PUT" %> method="POST">
+<% include ../partials/header_order %>
+<section class="section green">
+    <div class="container">
+        <div class="row">
+            <h1 class="page-header">Edit Order</h1>
+            <p>
+                <%= order.productId[0].title %>
+            </p>
+            <p>
+                <%= order.customerId[0].fullName %>
+            </p>
+            <p>
+                <%= order.customerId[0].address %>
+            </p>
+            <p>
+                <%= order.customerId[0].contactNumber %>
+            </p>
+            <form action=<%="/order/" + order.id + "?_method=PUT" %> method="POST">
 
-    <div class="form-group">
-      <label for="completed">Completed</label>
-      <div class="radio">
-        <label>
+                <div class="form-group">
+                    <label for="completed">Completed</label>
+                    <div class="radio">
+                        <label>
           <% if (order.completed == true) { %>
             <input type="radio" name="completed" id="true" value="true" checked="checked">
           <% } else { %>
@@ -17,9 +28,9 @@
           <% } %>
           True
         </label>
-      </div>
-      <div class="radio">
-        <label>
+                    </div>
+                    <div class="radio">
+                        <label>
           <% if (order.completed == false) { %>
             <input type="radio" name="completed" id="false" value="false" checked="checked">
           <% } else { %>
@@ -27,8 +38,10 @@
           <% } %>
           False
         </label>
-      </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
-</div>
+</section>

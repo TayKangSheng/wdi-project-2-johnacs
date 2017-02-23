@@ -1,27 +1,37 @@
-<div class="container">
-  <h1 class="page-header">Ordered Item</h1>
-  <pre><%=order%></pre>
-  <ul class="list-group">
-    <li class="list-group-item">
-      <h3><strong>Order Id: <%= order._id %> </strong></h3>
-        <p><%= order.productId[0].title %> </p>
-        <p><%= order.customerId[0].fullName %> </p>
-        <p><%= order.customerId[0].address %> </p>
-        <p><%= order.customerId[0].contactNumber %> </p>
-      <h4>Order Status:
-        <% if (order.completed == true) { %>
-          <span class="label label-success">True</span>
-        <% } else if (order.completed == false) { %>
-          <span class="label label-danger">False</span>
-        <% } %>
-      </h4>
+<% include ../partials/header_order %>
+    <section class="section green">
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <h1 class="page-header">Order Detail </h1>
+                    <!-- <pre><%=order%></pre> -->
+                    <h3><strong>Order Id: <%= order._id %> </strong></h3>
+                    <p><strong>Product: </strong>
+                        <%= order.productId[0].title %>
+                    </p>
+                    <p><strong>Customer: </strong>
+                        <%= order.customerId[0].fullName %>
+                    </p>
+                    <p><strong>Address: </strong>
+                        <%= order.customerId[0].address %>
+                    </p>
+                    <p><strong>Contact Number: </strong>
+                        <%= order.customerId[0].contactNumber %>
+                    </p>
+                    <p><strong>Order Status: </strong>
+                        <% if (order.completed == true) { %>
+                            <span class="label label-info">Completed</span>
+                            <% } else if (order.completed == false) { %>
+                                <span class="label label-danger">Processing</span>
+                                <% } %>
+                    </p>
 
-      <a class="btn btn-warning" href=<%= "/order/" + order._id + "/edit" %>>Edit</a>
+                    <p><a class="btn btn-info" href=<%="/order/" + order._id + "/edit" %>>Edit</a></p>
 
-      <form class="deleteForm "method="POST" action=<%= "/order/" + order._id + "?_method=DELETE" %>>
-        <button type="submit" class="btn btn-danger">Delete</button>
-      </form>
-
-    </li>
-  </ul>
-</div>
+                    <form class="deleteForm " method="POST" action=<%="/order/" + order._id + "?_method=DELETE" %>>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>

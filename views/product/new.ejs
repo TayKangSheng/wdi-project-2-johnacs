@@ -1,17 +1,25 @@
-<div class="container">
-  <form action="/product" method="POST">
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" class="form-control" id="titleInput" placeholder="Title" name="title">
-    </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Description" name="description"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="imageUrl">Product Image URL</label>
-      <input type="text" class="form-control" id="imageUrlInput" placeholder="Product image url" name="imageUrl">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
-</div>
+<% include ../partials/header_product %>
+    <section class="section green">
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <h1 class="page-header">New Product</h1>
+                    <form action="/product" method="POST">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="titleInput" placeholder="Title" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Description" name="description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="imageUrl">Product Image URL</label>
+                            <input type="text" class="form-control" id="imageUrlInput" placeholder="Product image url" name="imageUrl">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>

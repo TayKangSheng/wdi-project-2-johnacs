@@ -1,31 +1,22 @@
-<div class="container">
-  <h1 class="page-header">Orders</h1>
-
-<ul class="list-group">
-  <% orders.forEach(function (order) { %>
-    <pre><%=order%></pre>
-    <li class="list-group-item">
-      <strong><%= order.productId[0].title %> </strong>
-    </li>
-    <li class="list-group-item">
-      <strong><%= order.customerId[0].fullName %> </strong>
-    </li>
-    <li class="list-group-item">
-      <strong><%= order.customerId[0].address %> </strong>
-    </li>
-    <li class="list-group-item">
-      <strong><%= order.customerId[0].contactNumber %> </strong>
-    </li>
-    <li class="list-group-item">
-      Order Status :
-      <% if (order.completed == true) { %>
-        <span class="label label-success">True</span>
-      <% } else if (order.completed == false) { %>
-        <span class="label label-danger">False</span>
-      <% } %>
-      <a class="pull-right" href=<%= "/order/" + order._id %>>View</a>
-    </li>
-  <% }) %>
-</ul>
-
-</div>
+<% include ../partials/header_order %>
+<section class="section green">
+    <div class="container">
+        <div class="row">
+            <% orders.forEach(function (order) { %>
+                <div class="span5 paddingsmall">
+                    <p><strong>Product: </strong><%= order.productId[0].title %> </p>
+                    <p><strong>Name: </strong><%= order.customerId[0].fullName %> </p>
+                    <p><strong>Address: </strong><%= order.customerId[0].address %> </p>
+                    <p><strong>Contact Number: </strong><%= order.customerId[0].contactNumber %> </p>
+                    <p><strong>Order Status : </strong>
+                    <% if (order.completed == true) { %>
+                        <span class="label label-success">Completed</span>
+                        <% } else if (order.completed == false) { %>
+                            <span class="label label-danger">Processing</span>
+                            <% } %></p>
+                    <p><a class="pull-right btn btn-info" href=<%="/order/" + order._id %>>View</a></p>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+</section>

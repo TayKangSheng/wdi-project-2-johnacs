@@ -22,11 +22,12 @@ const port = process.env.PORT || 4000
 
 // static files
 app.use(express.static(path.join(__dirname, 'public')))
+app.use("/css",express.static(__dirname + "/css"));
 
 app.use(cookieParser(process.env.SESSION_SECRET))
 app.use(session({
   secret: process.env.SESSION_SECRET,
-  cookie: { maxAge: 600000 },
+  cookie: { maxAge: 3600000 },
   resave: false,
   saveUninitialized: true,
   store: new MongoStore({

@@ -1,3 +1,11 @@
-<h1>Signup form</h1>
-<%- include('../partials/flash') %>
-<%- include('../partials/authform', {formUrl: '/signup'}) %>
+<section class="section green">
+    <div class="container">
+        <div class="row">
+          <div class="span6 offset3">
+            <h1 class="page-header">Register</h1>
+            <%- include('../partials/flash') %>
+            <%- include('../partials/authform', {formUrl: '/signup'}) %>
+          </div>
+        </div>
+    </div>
+</section>

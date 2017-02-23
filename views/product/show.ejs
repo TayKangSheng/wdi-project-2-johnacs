@@ -1,20 +1,26 @@
-<div class="container">
-  <h1 class="page-header">Product</h1>
-  <!-- <pre><%=product%></pre> -->
-      <div class="col-md-12">
-      <div class="col-md-6">
-          <h2><%= product.title %>: </h2>
-          <p class="product-desc"><%= product.description %></p>
-      </div>
-      <div class="col-md-6">
-          <a href=<%= "/product/" + product._id %>><img src="<%= product.imageUrl %>" class="product-image" alt="<%= product.title %>"></a>
-          <a class="btn btn-warning" href=<%= "/product/" + product._id + "/edit" %>>Edit</a>
+<% include ../partials/header_product %>
+  <section class="section green">
+    <div class="container">
+        <div class="row">
+            <h1 class="page-header">Product</h1>
+            <!-- <pre><%=product%></pre> -->
+            <div class="span6">
+                <div>
+                    <h2><%= product.title %>: </h2>
+                    <p class="product-desc">
+                        <%= product.description %>
+                    </p>
+                </div>
+                <div>
+                    <a href=<%="/product/" + product._id %>><img src="<%= product.imageUrl %>" class="product-image" alt="<%= product.title %>"></a>
+                    <p class="pull-right"><a class="btn btn-info" href=<%="/product/" + product._id + "/edit" %>>Edit</a></p>
+                    <form class="deleteForm " method="POST" action=<%="/product/" + product._id + "?_method=DELETE" %>>
+                      <p class="pull-right"> <button type="submit" class="btn btn-danger">Delete</button></p>
+                    </form>
 
-          <form class="deleteForm "method="POST" action=<%= "/product/" + product._id + "?_method=DELETE" %>>
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </form>
-      </div>
-      </div>
-      </div>
-
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
