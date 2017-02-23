@@ -4,9 +4,15 @@
 <ul class="list-group">
   <% devices.forEach(function (device) { %>
     <li class="list-group-item">
-    <pre><%=device%></pre>
-      <strong><%= device.deviceId %>: </strong>
+    <!-- <pre><%=device%></pre> -->
+      <strong>Device ID : <%= device.deviceId %></strong>
       <%= device.productId[0].title %>
+    </li>
+    <li class="list-group-item">
+      <strong>Owned by : </strong>
+      <%= device.customerId[0].fullName %>
+    </li>
+    <li class="list-group-item">
       <a class="pull-right" href=<%= "/device/" + device._id %>>View</a>
     </li>
   <% }) %>

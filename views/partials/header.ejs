@@ -14,6 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <%if (authenticated) { %>
         <li><a href="/order">View All Orders <span class="sr-only">(current)</span></a></li>
         <li><a href="/customer">View All Customers <span class="sr-only">(current)</span></a></li>
         <li><a href="/customer/new">Add New Customer <span class="sr-only">(current)</span></a></li>
@@ -21,6 +22,7 @@
         <li><a href="/device/new">Add New Device <span class="sr-only">(current)</span></a></li>
         <li><a href="/product">View All Products <span class="sr-only">(current)</span></a></li>
         <li><a href="/product/new">Add New Product <span class="sr-only">(current)</span></a></li>
+        <% } %>
         <%if (!authenticated) { %>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/login">Login</a></li>

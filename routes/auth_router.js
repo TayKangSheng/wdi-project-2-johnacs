@@ -10,7 +10,7 @@ function isLoggedIn (req, res, next) {
    type: 'danger',
    message: 'You have logged in'
  })
- res.redirect('/animals')
+ res.redirect('/')
 }
 
 
@@ -40,7 +40,7 @@ Router.post('/signup',isLoggedIn, function (req, res) {
 
 Router.post('/login',isLoggedIn, function (req, res) {
   var loginStrategy = passport.authenticate('local-login', {
-    successRedirect: '/',
+    successRedirect: '/order',
     failureRedirect: '/login',
     failureFlash: true
   })

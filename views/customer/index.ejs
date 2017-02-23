@@ -3,11 +3,11 @@
 <ul class="list-group">
   <% customers.forEach(function (customer) { %>
     <li class="list-group-item">
-    <pre><%=customer%></pre>
-      <h3><strong><%= customer.fullName %>: </strong></h3>
-      <p><%= customer.email %></p>
-      <p><%= customer.address %></p>
-      <p><%= customer.contactNumber %></p>
+    <!-- <pre><%=customer%></pre> -->
+      <h2><strong><%= customer.fullName %>: </strong></h2>
+      <h3><%= customer.email %></h3>
+      <h3><%= customer.address %></h3>
+      <h3><%= customer.contactNumber %></h3>
       <a class="pull-right" href=<%= "/customer/" + customer._id %>>View</a>
     </li>
   <% }) %>
