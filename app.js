@@ -63,10 +63,13 @@ app.use(function(req, res, next){
 const Auth = require('./routes/auth_router')
 app.use('/', Auth)
 
-
-app.get('/', (req,res)=>
-res.render('index')
-)
+var Product = require('./models/product')
+app.get('/', (req,res)=>{
+  Product.find({}, (err, output) => {
+    if (err) throw err
+    res.render('index', { products: output })
+  })
+})
 
 const order = require('./routes/order_router')
 app.use('/order', order)

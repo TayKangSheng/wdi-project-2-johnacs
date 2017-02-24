@@ -28,6 +28,14 @@ Router.get('/login', isLoggedIn, function (req, res) {
 
 Router.post('/signup',isLoggedIn, function (req, res) {
 // res.send('post signup')
+if(!req.body.email){
+  req.flash('flash',{
+    type: 'danger',
+    message: 'Please fill in the fields'
+  })
+  res.redirect('/signup')
+  }
+
   var signupStrategy = passport.authenticate('local-signup', {
     successRedirect: '/',
     failureRedirect: '/signup',
