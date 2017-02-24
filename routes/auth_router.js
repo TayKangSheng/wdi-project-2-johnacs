@@ -51,7 +51,7 @@ Router.post('/login',isLoggedIn, function (req, res) {
 
 Router.get('/logout', function (req, res) {
   req.logout() // remove the session => req.user = undefined, req.isAuthenticated()= false
-  res.redirect('/')
+  res.redirect('/login')
 })
 
 module.exports = Router

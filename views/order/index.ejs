@@ -4,17 +4,24 @@
         <div class="row">
             <% orders.forEach(function (order) { %>
                 <div class="span5 paddingsmall">
-                    <p><strong>Product: </strong><%= order.productId[0].title %> </p>
-                    <p><strong>Name: </strong><%= order.customerId[0].fullName %> </p>
-                    <p><strong>Address: </strong><%= order.customerId[0].address %> </p>
-                    <p><strong>Contact Number: </strong><%= order.customerId[0].contactNumber %> </p>
-                    <p><strong>Order Status : </strong>
-                    <% if (order.completed == true) { %>
-                        <span class="label label-success">Completed</span>
-                        <% } else if (order.completed == false) { %>
-                            <span class="label label-danger">Processing</span>
-                            <% } %></p>
+                <div class="row">
+                <div class="span3">
+                <p><strong>Product: </strong><%= order.productId[0].title %> </p>
+                <p><strong>Name: </strong><%= order.customerId[0].fullName %> </p>
+                <p><strong>Address: </strong><%= order.customerId[0].address %> </p>
+                <p><strong>Contact Number: </strong><%= order.customerId[0].contactNumber %> </p>
+                <p><strong>Order Status : </strong>
+                <% if (order.completed == true) { %>
+                  <span class="label label-success">Completed</span>
+                  <% } else if (order.completed == false) { %>
+                    <span class="label label-danger">Processing</span>
+                    <% } %></p>
                     <p><a class="pull-right btn btn-info" href=<%="/order/" + order._id %>>View</a></p>
+                </div>
+                <div class="span2">
+                  <img src="<%= order.productId[0].imageUrl %>" class="paddingsmall product-image" alt="<%= order.productId[0].title %>">
+                </div>
+                </div>
                 </div>
                 <% }) %>
         </div>

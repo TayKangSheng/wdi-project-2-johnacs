@@ -2,14 +2,25 @@
     <section class="section green">
         <div class="container">
             <div class="row">
+              <div class="span8">
                 <h1 class="page-header">Edit Customer</h1>
                 <h2>Customer: <%=customer.fullName%></h2>
-                <h4>Devices owned:  </h5>
-              <form action=<%= "/customer/" + customer.id + "?_method=PUT" %> method="POST">
-                <div class="form-group">
-                  <button type="submit" class="btn btn-default">Submit</button>
-                </div>
-              </form>
+                <form action=<%="/customer/" + customer.id + "?_method=PUT" %> method="POST">
+                    <div class="form-group">
+                          <label for="fName">First Name: </label>
+                          <input type="text" class="form-control" id="fNameInput" placeholder="First Name" name="fName" value="<%= customer.fName %>">
+                          <label for="lName">Last Name: </label>
+                          <input type="text" class="form-control" id="lNameInput" placeholder="Last Name" name="lName" value="<%= customer.lName %>">
+                          <label for="email">Email: </label>
+                          <input type="email" class="form-control" id="emailInput" placeholder="Email" name="email" value="<%= customer.email %>">
+                          <label for="address">Address: </label>
+                          <input type="text" class="form-control" id="addressInput" placeholder="Address" name="address" value="<%= customer.address %>">
+                          <label for="contact">Contact Number: </label>
+                          <input type="text" class="form-control" id="contactInput" placeholder="Contact Number" name="contact" value="<%= customer.contactNumber %>">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+              </div>
             </div>
-          </div>
-</section>
+        </div>
+    </section>

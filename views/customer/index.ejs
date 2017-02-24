@@ -2,19 +2,14 @@
 <section class="section green">
     <div class="container">
         <div class="row">
-            <h1 class="page-header">All Customers</h1>
-            <ul class="list-group">
                 <% customers.forEach(function (customer) { %>
-                    <li class="list-group-item">
-                        <!-- <pre><%=customer%></pre> -->
-                        <h2><strong><%= customer.fullName %>: </strong></h2>
-                        <h3><%= customer.email %></h3>
-                        <h3><%= customer.address %></h3>
-                        <h3><%= customer.contactNumber %></h3>
-                        <a class="pull-right" href=<%="/customer/" + customer._id %>>View</a>
-                    </li>
+                  <div class="span5 paddingsmall">
+                    <p><strong>Customer: </strong><%= customer.fullName %></p>
+                    <p><strong>Email: </strong><%= customer.email %></p>
+                    <p><strong>Contact Number : </strong><%= customer.contactNumber %></p>
+                    <p><a class="pull-right btn btn-info" href=<%="/customer/" + customer._id %>>View</a></p>
+                    </div>
                     <% }) %>
-            </ul>
         </div>
     </div>
 </section>

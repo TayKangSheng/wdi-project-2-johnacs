@@ -6,6 +6,12 @@ let isNotLoggedIn = require('./isnotloggedin')
 
 Router.get('/', isNotLoggedIn, orderController.list)
 
+Router.get('/completed', isNotLoggedIn, orderController.completed)
+
+Router.get('/inprocess', isNotLoggedIn, orderController.inprocess)
+
+Router.get('/cancelled', isNotLoggedIn, orderController.cancelled)
+
 // Router.get('/new', orderController.new)
 
 Router.get('/:id', isNotLoggedIn, orderController.show)

@@ -6,18 +6,74 @@ let orderController = {
 
   list: (req, res) => {
     Order.find({})
-    .populate('deviceId')
-    .populate('productId')
-    .populate('customerId')
-    .exec(
-     (err, output) => {
-       if (err) next(err)
-       res.render('order/', { orders: output })
-     })
+      .populate('deviceId')
+      .populate('productId')
+      .populate('customerId')
+      .exec(
+        (err, output) => {
+          if (err) next(err)
+          res.render('order/', {
+            orders: output,
+            flash: req.flash('flash')[0]
+          })
+        })
+  },
+
+  completed: (req, res) => {
+    Order.find({
+        completed: true
+      })
+      .populate('deviceId')
+      .populate('productId')
+      .populate('customerId')
+      .exec(
+        (err, output) => {
+          if (err) next(err)
+          res.render('order/', {
+            orders: output,
+            flash: req.flash('flash')[0]
+          })
+        })
+  },
+
+  inprocess: (req, res) => {
+    Order.find({
+        completed: false
+      })
+      .populate('deviceId')
+      .populate('productId')
+      .populate('customerId')
+      .exec(
+        (err, output) => {
+          if (err) next(err)
+          res.render('order/', {
+            orders: output,
+            flash: req.flash('flash')[0]
+          })
+        })
+  },
+
+  cancelled: (req, res) => {
+    Order.find({
+        cancelOrder: true
+      })
+      .populate('deviceId')
+      .populate('productId')
+      .populate('customerId')
+      .exec(
+        (err, output) => {
+          if (err) next(err)
+          res.render('order/', {
+            orders: output,
+            flash: req.flash('flash')[0]
+          })
+        })
   },
 
   create: (req, res) => {
-    Device.find({deviceId: req.body.deviceId}, (err, output) => {
+    Device.find({
+      deviceId: req.body.deviceId
+    }, (err, output) => {
       // console.log(output);
 
       let deviceId = output[0]._id
@@ -29,7 +85,7 @@ let orderController = {
         productId: product_Id,
         customerId: customer_Id
       })
-      newOrder.save(function (err, savedEntry) {
+      newOrder.save(function(err, savedEntry) {
         if (err) throw err
         res.send('order taken')
       })
@@ -41,28 +97,34 @@ let orderController = {
     // res.send('show order')
 
     Order.findById(req.params.id)
-    .populate('deviceId')
-    .populate('productId')
-    .populate('customerId')
-    .exec(
-     (err, output) => {
-       if (err) next(err)
-       res.render('order/show', { order: output })
-     })
+      .populate('deviceId')
+      .populate('productId')
+      .populate('customerId')
+      .exec(
+        (err, output) => {
+          if (err) next(err)
+          res.render('order/show', {
+            order: output,
+            flash: req.flash('flash')[0]
+          })
+        })
 
   },
 
   edit: (req, res) => {
 
     Order.findById(req.params.id)
-    .populate('deviceId')
-    .populate('productId')
-    .populate('customerId')
-    .exec(
-     (err, output) => {
-       if (err) next(err)
-       res.render('order/edit', { order: output })
-     })
+      .populate('deviceId')
+      .populate('productId')
+      .populate('customerId')
+      .exec(
+        (err, output) => {
+          if (err) next(err)
+          res.render('order/edit', {
+            order: output,
+            flash: req.flash('flash')[0]
+          })
+        })
 
   },
 
@@ -70,7 +132,8 @@ let orderController = {
     Order.findOneAndUpdate({
       _id: req.params.id
     }, {
-      completed: req.body.completed
+      completed: req.body.completed,
+      cancelOrder: req.body.cancelOrder
     }, (err, orderItem) => {
       if (err) throw err
       res.redirect('/order/' + orderItem.id)

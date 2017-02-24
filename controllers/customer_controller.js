@@ -67,7 +67,7 @@ let customerController = {
       lName: req.body.lName,
       email: req.body.email,
       address: req.body.address,
-      contactNumber: req.body.contactNumber
+      contactNumber: req.body.contact
     }, (err, customer) => {
       if (err) throw err
       res.redirect('/customer/' + customer.id)

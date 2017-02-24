@@ -2,18 +2,20 @@
     <section class="section green">
         <div class="container">
             <div class="row">
-                <h1 class="page-header">Device ID: <%=device.deviceId%></h1>
-                <!-- <pre><%=device%></pre> -->
+              <div class="span5">
+                <h2>Device ID: <%=device.deviceId%></h2>
                 <p><strong>Product: </strong>
                     <%= device.productId[0].title %>
                 </p>
                 <p><strong>Owner: </strong>
                     <%= device.customerId[0].fullName %>
                 </p>
-                <p><a class="btn btn-info" href=<%="/device/" + device._id + "/edit" %>>Edit</a></p>
-                <form class="deleteForm " method="POST" action=<%="/device/" + device._id + "?_method=DELETE" %>>
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                <img src="<%= device.productId[0].imageUrl %>" class="product-image" alt="<%= device.productId[0].title %>">
+                <p class="pull-right"><a class="btn btn-info" href=<%="/device/" + device._id + "/edit" %>>Edit</a></p>
+                <form class="deleteForm" method="POST" action=<%="/device/" + device._id + "?_method=DELETE" %>>
+                <p class="pull-right"><button type="submit" class="btn btn-danger">Delete</button></p>
                 </form>
+              </div>
             </div>
         </div>
     </section>

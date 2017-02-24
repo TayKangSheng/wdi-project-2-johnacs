@@ -2,21 +2,16 @@
 <section class="section green">
     <div class="container">
         <div class="row">
-            <h1 class="page-header">Customer</h1>
-            <h2>Name: <%=customer.fullName%></h2>
-            <!-- <pre><%=customer%></pre> -->
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <h3><strong><%= customer.fullName %>: </strong></h3>
-                    <h4>Devices owned: </h4>
-                    <a class="btn btn-warning" href=<%="/customer/" + customer._id + "/edit" %>>Edit</a>
+          <div class="span5">
+            <h1><%=customer.fullName%></h1>
+            <p><strong>Name: </strong><%= customer.fullName %></p>
+            <p><strong>Devices owned: </p>
+            <a class="btn btn-info" href=<%="/customer/" + customer._id + "/edit" %>>Edit</a>
 
-                    <form class="deleteForm " method="POST" action=<%="/customer/" + customer._id + "?_method=DELETE" %>>
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-
-                </li>
-            </ul>
+            <form class="deleteForm " method="POST" action=<%="/customer/" + customer._id + "?_method=DELETE" %>>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
         </div>
     </div>
 </section>
