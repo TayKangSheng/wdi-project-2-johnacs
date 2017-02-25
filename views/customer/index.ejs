@@ -4,10 +4,14 @@
         <div class="row">
                 <% customers.forEach(function (customer) { %>
                   <div class="span5 paddingsmall">
-                    <p><strong>Customer: </strong><%= customer.fullName %></p>
+                    <h3><%= customer.fullName %></h3>
+                    <p><strong>Address: </strong><%= customer.address %></p>
                     <p><strong>Email: </strong><%= customer.email %></p>
-                    <p><strong>Contact Number : </strong><%= customer.contactNumber %></p>
-                    <p><a class="pull-right btn btn-info" href=<%="/customer/" + customer._id %>>View</a></p>
+                    <p><strong>Contact Number: </strong><%= customer.contactNumber %></p>
+
+                    <a href="<%="/customer/" + customer._id %>"><button class="btn btn-info"><i class="icon-eye-open"></i>View</button></a>
+
+                    <a href="<%="/customer/" + customer._id + "/edit" %>"<button class="btn btn-primary"><i class="icon-pencil"></i>Edit</button></a>
                     </div>
                     <% }) %>
         </div>

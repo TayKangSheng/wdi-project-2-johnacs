@@ -5,11 +5,13 @@
           <div class="span5">
             <h1><%=customer.fullName%></h1>
             <p><strong>Name: </strong><%= customer.fullName %></p>
-            <p><strong>Devices owned: </p>
-            <a class="btn btn-info" href=<%="/customer/" + customer._id + "/edit" %>>Edit</a>
+            <p><strong>Address: </strong><%= customer.address %></p>
+            <p><strong>Email: </strong><%= customer.email %></p>
+            <p><strong>Contact Number: </strong><%= customer.contactNumber %></p>
+              <a href=<%="/customer/" + customer._id + "/edit" %> class="pull-left"><button class="btn btn-primary"><i class="icon-pencil"></i>Edit</button></a>
 
             <form class="deleteForm " method="POST" action=<%="/customer/" + customer._id + "?_method=DELETE" %>>
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger"><i class="icon-trash"></i>Delete</button>
             </form>
           </div>
         </div>

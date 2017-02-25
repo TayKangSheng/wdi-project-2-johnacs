@@ -1,10 +1,9 @@
 <% include ../partials/header_device %>
     <section class="section green">
         <div class="container">
+          <h1 class="page-header">Edit Device</h1>
             <div class="row">
-                <div class="span8">
-                    <h1 class="page-header">Edit Device</h1>
-                    <!-- <pre><%=device%></pre> -->
+                <div class="span5">
                     <h3>Device ID: <%=device.deviceId%></h3>
                     <p><strong>Current Product: </strong>
                         <%=device.productId[0].title%>
@@ -12,15 +11,24 @@
                     <p><strong>Current Customer: </strong>
                         <%=device.customerId[0].fullName%>
                     </p>
-                    <form action=<%="/device/" + device.id + "?_method=PUT" %> method="POST">
+                    <form action=<%="/device/" + device.id + "?_method=PUT" %> method="POST" class="contact-form">
                         <div class="form-group">
                             <label for="deviceId">Device ID</label>
                             <input type="text" name="deviceId" class="form-control" id="deviceIdInput" value="<%= device.deviceId %>">
                         </div>
                         <div class="form-group">
+                            <label for="imageUrl">Image URL</label>
+                            <input type="text" name="imageUrl" class="form-control" id="imageUrlInput" value="<%= device.imageUrl %>">
+                        </div>
+                        <div class="form-group">
+                          <label for="productId">Product</label>
                             <select name="productId">
                                 <% products.forEach(function (product) {%>
-                                  <option value="<%=product.id%>"><%= product.title %></option>
+                                <% if(product.title === device.productId[0].title){ %>
+                                    <option value="<%=product.id%>" selected><%= product.title %></option>
+                                <% } else { %>
+                                    <option value="<%=product.id%>"><%= product.title %></option>
+                                <% } %>
                                 <% }) %>
                             </select>
                         </div>
@@ -33,6 +41,14 @@
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
+                </div>
+                <div class="span3">
+                    <p>Device image:</p>
+                    <img src="<%= device.imageUrl %>" class="product-image" alt="<%= device.productId[0].title %>">
+                </div>
+                <div class="span3">
+                  <p>Product image</p>
+                  <img src="<%= device.productId[0].imageUrl %>" class="product-image" alt="<%= device.productId[0].title %>">
                 </div>
             </div>
         </div>

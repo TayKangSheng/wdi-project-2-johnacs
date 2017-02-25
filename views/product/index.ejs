@@ -1,23 +1,25 @@
 <% include ../partials/header_product %>
     <section class="section green">
         <div class="container">
-          <div class="row">
-            <% products.forEach(function (product) { %>
-              <div class="span5 paddingsmall">
-              <div class="row">
-                    <div class="span3">
-                        <h2><%= product.title %>: </h2>
-                        <p class="product-desc">
-                            <%= product.description %>
-                        </p>
-                        <p><a class="pull-right btn btn-info" href=<%="/product/" + product._id %>>View</a></p>
+            <div class="row flex-it">
+                <% products.forEach(function (product) { %>
+                    <div class="span4 paddingsmall">
+                      <div class="row">
+                            <div>
+                                <h2><%= product.title %>: </h2>
+                                <p class="product-desc">
+                                    <%= product.description %>
+                                </p>
+                                <a href="<%="/product/" + product._id %>"><button class="btn btn-info"><i class="icon-eye-open"></i>View</button></a>
+
+                                <a href="<%="/product/" + product._id + "/edit" %>"<button class="btn btn-primary"><i class="icon-pencil"></i>Edit</button></a>
+                            </div>
+                            <div>
+                                <a href=<%="/product/" + product._id %>><img src="<%= product.imageUrl %>" class="product-image" alt="<%= product.title %>"></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="span2">
-                        <a href=<%="/product/" + product._id %>><img src="<%= product.imageUrl %>" class="product-image" alt="<%= product.title %>"></a>
-                    </div>
-                    </div>
-                    </div>
-                <% }) %>
-              </div>
+                    <% }) %>
+            </div>
         </div>
     </section>

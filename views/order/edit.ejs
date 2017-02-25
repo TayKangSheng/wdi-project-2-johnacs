@@ -5,16 +5,16 @@
                 <div class="span8">
                     <h1 class="page-header">Edit Order</h1>
                     <h3><strong>Order Id: <%= order._id %> </strong></h3>
-                    <p>
+                    <p><strong>Product: </strong>
                         <%= order.productId[0].title %>
                     </p>
-                    <p>
+                    <p><strong>Customer: </strong>
                         <%= order.customerId[0].fullName %>
                     </p>
-                    <p>
+                    <p><strong>Address: </strong>
                         <%= order.customerId[0].address %>
                     </p>
-                    <p>
+                    <p><strong>contact Number: </strong>
                         <%= order.customerId[0].contactNumber %>
                     </p>
                     <form action=<%="/order/" + order.id + "?_method=PUT" %> method="POST">

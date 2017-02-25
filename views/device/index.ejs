@@ -15,10 +15,13 @@
                       <p><strong>Owned by : </strong>
                           <%= device.customerId[0].fullName %>
                       </p>
-                      <p><a class="pull-right btn btn-info" href=<%="/device/" + device._id %>>View</a></p>
+                      <a href="<%="/device/" + device._id %>"><button class="btn btn-info"><i class="icon-eye-open"></i>View</button></a>
+
+                      <a href="<%="/device/" + device._id + "/edit" %>"<button class="btn btn-primary"><i class="icon-pencil"></i>Edit</button></a>
+
                       </div>
                       <div class="span2">
-                      <a href=<%="/device/" + device._id %>><img src="<%= device.productId[0].imageUrl %>" class="product-image" alt="<%= device.productId[0].title %>"></a>
+                      <a href=<%="/device/" + device._id %>><img src="<%= device.imageUrl %>" class="product-image" alt="<%= device.productId[0].title %>"></a>
                       </div>
                     </div>
                     </div>

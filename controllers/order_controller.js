@@ -21,7 +21,8 @@ let orderController = {
 
   completed: (req, res) => {
     Order.find({
-        completed: true
+        completed: true,
+        cancelOrder: false
       })
       .populate('deviceId')
       .populate('productId')
@@ -38,7 +39,8 @@ let orderController = {
 
   inprocess: (req, res) => {
     Order.find({
-        completed: false
+        completed: false,
+        cancelOrder: false
       })
       .populate('deviceId')
       .populate('productId')

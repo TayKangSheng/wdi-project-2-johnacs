@@ -10,11 +10,11 @@
                     </p>
                 </div>
                 <div>
-                    <a href=<%="/product/" + product._id %>><img src="<%= product.imageUrl %>" class="product-image" alt="<%= product.title %>"></a>
-                    <p class="pull-right"><a class="btn btn-info" href=<%="/product/" + product._id + "/edit" %>>Edit</a></p>
+                  <a href=<%="/product/" + product._id + "/edit" %> class="pull-left"><button class="btn btn-primary"><i class="icon-pencil"></i>Edit</button></a>
                     <form class="deleteForm " method="POST" action=<%="/product/" + product._id + "?_method=DELETE" %>>
-                      <p class="pull-right"> <button type="submit" class="btn btn-danger">Delete</button></p>
+                      <p class="pull-right"> <button type="submit" class="btn btn-danger"><i class="icon-trash"></i>Delete</button></p>
                     </form>
+                    <a href=<%="/product/" + product._id + "/edit" %>><img src="<%= product.imageUrl %>" class="product-image" alt="<%= product.title %>"></a>
 
                 </div>
             </div>

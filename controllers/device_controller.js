@@ -39,6 +39,7 @@ let deviceController = {
   create: (req, res) => {
     let newDevice = new Device({
       deviceId: req.body.deviceId,
+      imageUrl: req.body.imageUrl,
       productId: req.body.productId,
       customerId: req.body.customerId
     })
@@ -104,6 +105,7 @@ let deviceController = {
       _id: req.params.id
     }, {
       deviceId: req.body.deviceId,
+      imageUrl: req.body.imageUrl,
       productId: req.body.productId,
       customerId: req.body.customerId
     }, (err, device) => {

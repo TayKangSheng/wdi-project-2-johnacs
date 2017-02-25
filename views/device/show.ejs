@@ -1,20 +1,28 @@
 <% include ../partials/header_device %>
     <section class="section green">
         <div class="container">
+          <h2>Device ID: <%=device.deviceId%></h2>
             <div class="row">
               <div class="span5">
-                <h2>Device ID: <%=device.deviceId%></h2>
                 <p><strong>Product: </strong>
                     <%= device.productId[0].title %>
                 </p>
                 <p><strong>Owner: </strong>
                     <%= device.customerId[0].fullName %>
                 </p>
-                <img src="<%= device.productId[0].imageUrl %>" class="product-image" alt="<%= device.productId[0].title %>">
-                <p class="pull-right"><a class="btn btn-info" href=<%="/device/" + device._id + "/edit" %>>Edit</a></p>
-                <form class="deleteForm" method="POST" action=<%="/device/" + device._id + "?_method=DELETE" %>>
-                <p class="pull-right"><button type="submit" class="btn btn-danger">Delete</button></p>
+                <a href=<%="/device/" + device._id + "/edit" %> class="pull-left"><button class="btn btn-primary"><i class="icon-pencil"></i>Edit</button></a>
+
+                <form class="deleteForm pull-right" method="POST" action=<%="/device/" + device._id + "?_method=DELETE" %>>
+                <p class="pull-right"><button type="submit" class="btn btn-danger"><i class="icon-trash"></i>Delete</button></p>
                 </form>
+              </div>
+              <div class="span2">
+                <p>Device image:</p>
+                <img src="<%= device.imageUrl %>" class="product-image" alt="<%= device.productId[0].title %>">
+              </div>
+              <div class="span2">
+                <p>Linked to this product:</p>
+                <img src="<%= device.productId[0].imageUrl %>" class="product-image" alt="<%= device.productId[0].title %>">
               </div>
             </div>
         </div>

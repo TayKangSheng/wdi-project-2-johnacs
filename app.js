@@ -64,10 +64,11 @@ const Auth = require('./routes/auth_router')
 app.use('/', Auth)
 
 var Product = require('./models/product')
-app.get('/', (req,res)=>{
-  Product.find({}, (err, output) => {
-    if (err) throw err
-    res.render('index', { products: output })
+var Device = require('./models/device')
+app.get('/', (req,res,next)=>{
+  Device.find({}, (err, output) => {
+    if (err)  next(err)
+    res.render('index', { devices: output })
   })
 })
 

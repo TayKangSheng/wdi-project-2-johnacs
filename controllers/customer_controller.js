@@ -1,5 +1,5 @@
 let Customer = require('../models/customer')
-
+let Device = require('../models/device')
 
 let customerController = {
 
@@ -21,8 +21,6 @@ let customerController = {
       if (err) throw err
       res.render('customer/show', { customer: output })
     })
-
-
   },
 
   create: (req, res) => {

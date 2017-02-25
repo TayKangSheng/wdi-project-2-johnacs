@@ -28,7 +28,7 @@ Router.get('/login', isLoggedIn, function (req, res) {
 
 Router.post('/signup',isLoggedIn, function (req, res) {
 // res.send('post signup')
-if(!req.body.email){
+if(!req.body.email || !req.body.password ){
   req.flash('flash',{
     type: 'danger',
     message: 'Please fill in the fields'

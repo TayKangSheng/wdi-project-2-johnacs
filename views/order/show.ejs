@@ -19,16 +19,23 @@
                     </p>
                     <p><strong>Order Status: </strong>
                         <% if (order.completed == true) { %>
-                            <span class="label label-info">Completed</span>
+                            <span class="label label-success">Completed</span>
                             <% } else if (order.completed == false) { %>
-                                <span class="label label-danger">Processing</span>
+                                <span class="label label-info">Processing</span>
+                                <% } %>
+                    </p>
+                    <p><strong>Payment Status: </strong>
+                        <% if (order.cancelOrder == true) { %>
+                            <span class="label label-important">Cancelled</span>
+                            <% } else if (order.cancelOrder == false) { %>
+                                <span class="label label-success">Live</span>
                                 <% } %>
                     </p>
 
-                    <p><a class="btn btn-info" href=<%="/order/" + order._id + "/edit" %>>Edit</a></p>
+                    <a href=<%="/order/" + order._id + "/edit" %>><button class="btn btn-primary pull-left"><i class="icon-pencil"></i>Edit</button></a>
 
-                    <form class="deleteForm " method="POST" action=<%="/order/" + order._id + "?_method=DELETE" %>>
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                    <form class="deleteForm pull-right" method="POST" action=<%="/order/" + order._id + "?_method=DELETE" %>>
+                        <button type="submit" class="btn btn-danger"><i class="icon-trash"></i>Delete</button>
                     </form>
                 </div>
             </div>

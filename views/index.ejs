@@ -21,12 +21,7 @@
                             </li>
                             <li>
                                 <p class="home-slide-content">
-                                    Drink <strong>coffee</strong>
-                                </p>
-                            </li>
-                            <li>
-                                <p class="home-slide-content">
-                                    Drink <strong>coffee</strong>
+                                    Love <strong>coffee</strong>
                                 </p>
                             </li>
                         </ul>
@@ -38,13 +33,14 @@
     </header>
 </div>
 <!-- spacer section -->
-<section id="about" class="spacer green">
+<section id="about" class="spacer orange">
     <div class="container">
         <div class="row">
             <div class="span6 alignright flyLeft">
                 <blockquote class="large">
-                  Ordering made easy at the touch of a button
+                    What is it?
                 </blockquote>
+                <h3 class="textwhite">Pronto is a Wi-Fi connected device that reorders your favorite coffee with the press of a button. Each Pronto is paired with a coffee of your choice.</h3>
             </div>
             <div class="span6 aligncenter flyRight">
                 <i class="icon-coffee icon-10x"></i>
@@ -53,28 +49,50 @@
     </div>
 </section>
 <!-- end spacer section -->
-<!-- section: features -->
-<section id="features" class="section orange">
+<!-- spacer section -->
+<section id="about" class="spacer green">
     <div class="container">
-        <h4>Features</h4>
+        <div class="row">
+          <div class="span6 aligncenter flyLeft">
+            <i class="icon-coffee icon-10x"></i>
+          </div>
+            <div class="span6 alignright flyRight">
+                <blockquote class="large">
+                    Ordering made easy at the touch of a button
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end spacer section -->
+<!-- section: features -->
+<section id="howitworks" class="section spacer bg3">
+    <div class="container">
+        <h4 class="textwhite">How it works</h4>
         <!-- three columns -->
         <div class="row">
-            <div class="span4 animated-fast flyIn aligncenter">
+            <div class="span3 animated flyIn aligncenter">
                 <div class="service-box">
-                    <i class="icon-cloud-upload icon-10x icon-white"></i>
-                    <h2>Convenient</h2>
+                    <i class="icon-power-off icon-5x icon-white"></i>
+                    <h3 class="textwhite">Press the device button</h3>
                 </div>
             </div>
-            <div class="span4 animated flyIn aligncenter">
+            <div class="span3 animated-fast flyIn aligncenter">
+              <div class="service-box">
+                <i class="icon-cloud-upload icon-5x icon-white"></i>
+                <h3 class="textwhite">Order process through the cloud</h3>
+              </div>
+            </div>
+            <div class="span3 animated-fast flyIn aligncenter">
                 <div class="service-box">
-                    <i class="icon-coffee icon-10x icon-white"></i>
-                    <h2>More than 100 products</h2>
+                    <i class="icon-truck icon-5x icon-white"></i>
+                    <h3 class="textwhite">Next Day Delivery</h3>
                 </div>
             </div>
-            <div class="span4 animated-fast flyIn aligncenter">
+            <div class="span3 animated flyIn aligncenter">
                 <div class="service-box">
-                    <i class="icon-truck icon-10x icon-white"></i>
-                    <h2>Next Day Delivery</h2>
+                    <i class="icon-coffee icon-5x icon-white"></i>
+                    <h3 class="textwhite">Enjoy</h3>
                 </div>
             </div>
         </div>
@@ -83,63 +101,14 @@
 <!-- end section: services -->
 <!-- section: products -->
 <section id="products" class="section green">
-  <div class="row">
-  <div class="span10 offset1 slick_slider">
-    <% products.forEach(function (product) { %>
-      <div><img src="<%= product.imageUrl %>" alt="<%= product.title %>" /></div>
-      <% }) %>
-</div>
-</div>
-</section>
-<!-- spacer section -->
-<section class="spacer bg3">
     <div class="container">
+        <h4>Our Products</h4>
         <div class="row">
-            <div class="span12 aligncenter flyLeft">
-                <blockquote class="large">
-                    We are an established and trusted supply chain company with a commitment to quality product and service
-                </blockquote>
+            <div class="span10 offset1 slick_slider">
+                <% devices.forEach(function (device) { %>
+                    <div><img src="<%= device.imageUrl %>" alt="Pronto device" /></div>
+                    <% }) %>
             </div>
-            <div class="span12 aligncenter flyRight">
-                <i class="icon-refresh icon-10x"></i>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end spacer section -->
-
-<!-- section: contact -->
-<section id="contact" class="section green">
-    <div class="container">
-        <h4>Sign Up</h4>
-        <h5>
-		        and receive your first order free on the house
-	     </h5>
-        <div class="blankdivider30">
-        </div>
-        <div class="row">
-            <div class="span6 offset3">
-                <div class="cform" id="contact-form">
-                    <div id="sendmessage">Your registration has been sent. Thank you!</div>
-                    <div id="errormessage"></div>
-                    <form action="" method="post" role="form" class="contactForm">
-                        <div class="row">
-                            <div class="span6">
-                                <div class="field your-name form-group">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <div class="validation"></div>
-                                </div>
-                                <div class="field your-email form-group">
-                                    <input type="text" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                                    <div class="validation"></div>
-                                </div>
-                                <input type="submit" value="Send message" class="btn btn-theme pull-left">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- ./span12 -->
         </div>
     </div>
 </section>

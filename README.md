@@ -1,7 +1,8 @@
-# Your Project Name
+# GA WDI Project 2
+## Pronto Ordering System
 
 Pronto Ordering System:
-This system uses an IOT device to place order to the Pronto Ordering System.
+This system uses an IOT device to place orders over the cloud.
 
 
 ## Getting Started
@@ -47,17 +48,22 @@ Code example
 Live deployment on Heroku: https://evening-shelf-91568.herokuapp.com/
 
 ## Built With
-
-* [jQuery](http://jquery.com/) - jQuery
+* [NodeJs](https://nodejs.org/)
+* [Express Web Framework](http://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
+* Javascript
+* [jQuery](http://jquery.com/)
+* [BootStrap](http://getbootstrap.com/)
 
 ## Workflow
 
 Did you write user stories, draw wireframes, use task tracking, produce ERDs? Did you use source control, with regular commits? Include links to them here.
 
 ## Author
-
-* **John Ang** - *Responsible for keeping vests white* - [GithubUserName](https://github.com/johnacs)
+* **John Ang** - *Responsible for keeping vests white and the coffee flowing* - [GithubUserName](https://github.com/johnacs)
 
 ## Acknowledgments
-
 * Amazon Dash for the inspiration
+
+## Copyright notice
+All rights reserved, Ang Cheng Siew
