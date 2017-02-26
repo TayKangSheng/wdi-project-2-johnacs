@@ -12,36 +12,11 @@ Run npm install
 
 ### Prerequisites
 
-What is needed to install and run the project, how do we install them
-
+Run to install dependencies
 ```
-Code example
-```
-
-### How to Use
-
-A step by step guide on how to install and use the project, for example if this is a game, how do we play it.
-
-
-```
-Code example
+npm install
 ```
 
-More steps...
-
-```
-until finished
-```
-
-
-## Tests
-
-Did you write automated tests? If so, how do we run them.
-
-
-```
-Code example
-```
 
 ## Live Version
 
@@ -65,10 +40,10 @@ Live deployment on Heroku: https://evening-shelf-91568.herokuapp.com/
 6. Admin can add/view/edit customer
 
 #### Wireframes and Models:
-* [Wireframes and models](https://github.com/wdi-sg/wdi-project-2-johnacs/master/assets/modelsnwireframes.pdf)
+* [Link here](https://github.com/wdi-sg/wdi-project-2-johnacs/blob/master/assets/modelsnwireframes.pdf)
 
 ## Author
-* **John Ang** - *Responsible for keeping vests white and the coffee flowing* - [GithubUserName](https://github.com/johnacs)
+* **John Ang** - *Responsible for keeping vests white and the coffee flowing* - [find me on Github](https://github.com/johnacs)
 
 ## Acknowledgments
 * Amazon Dash for the inspiration

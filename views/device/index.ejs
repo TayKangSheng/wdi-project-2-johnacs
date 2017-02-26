@@ -1,9 +1,9 @@
 <% include ../partials/header_device %>
 <section class="section green">
     <div class="container">
-        <div class="row">
+        <div class="row flex-it">
                 <% devices.forEach(function (device) { %>
-                  <div class="span5 paddingsmall">
+                  <div class="span6">
                   <div class="row">
                       <div class="span3">
                       <p><strong>Device ID: </strong>
@@ -20,7 +20,7 @@
                       <a href="<%="/device/" + device._id + "/edit" %>"<button class="btn btn-primary"><i class="icon-pencil"></i>Edit</button></a>
 
                       </div>
-                      <div class="span2">
+                      <div class="span3">
                       <a href=<%="/device/" + device._id %>><img src="<%= device.imageUrl %>" class="product-image" alt="<%= device.productId[0].title %>"></a>
                       </div>
                     </div>
