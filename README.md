@@ -56,8 +56,23 @@ Live deployment on Heroku: https://evening-shelf-91568.herokuapp.com/
 * [BootStrap](http://getbootstrap.com/)
 
 ## Workflow
+#### User stories:
+1. Customer can order products conveniently when stock is low.
+2. Customer can sign up for this service
+3. Admin can view all orders, completed orders, in-process orders cancelled orders
+4. Admin can add/view/edit device to a product
+5. Admin can add/view/edit product
+6. Admin can add/view/edit customer
 
-Did you write user stories, draw wireframes, use task tracking, produce ERDs? Did you use source control, with regular commits? Include links to them here.
+#### Models:
+
+#### Wireframes:
+* [Homepage](https://github.com/wdi-sg/wdi-project-2-johnacs/master/assets/readme/homepage.jpg)
+* [Logins]()
+* [Orders]()
+* [Products]()
+* [Devices]()
+* [Customers]()
 
 ## Author
 * **John Ang** - *Responsible for keeping vests white and the coffee flowing* - [GithubUserName](https://github.com/johnacs)
