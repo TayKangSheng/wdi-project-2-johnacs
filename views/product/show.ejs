@@ -1,10 +1,10 @@
 <% include ../partials/header_product %>
   <section class="section green">
     <div class="container">
+      <h2><%= product.title %></h2>
         <div class="row">
             <div class="span5">
                 <div>
-                    <h2><%= product.title %>: </h2>
                     <p class="product-desc">
                         <%= product.description %>
                     </p>
@@ -14,9 +14,10 @@
                     <form class="deleteForm " method="POST" action=<%="/product/" + product._id + "?_method=DELETE" %>>
                       <p class="pull-right"> <button type="submit" class="btn btn-danger"><i class="icon-trash"></i>Delete</button></p>
                     </form>
-                    <a href=<%="/product/" + product._id + "/edit" %>><img src="<%= product.imageUrl %>" class="product-image" alt="<%= product.title %>"></a>
-
-                </div>
+                  </div>
+            </div>
+            <div class="span5">
+              <a href=<%="/product/" + product._id + "/edit" %>><img src="<%= product.imageUrl %>" class="product-image" alt="<%= product.title %>"></a>
             </div>
         </div>
     </div>

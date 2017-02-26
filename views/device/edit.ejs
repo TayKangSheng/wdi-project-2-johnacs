@@ -33,6 +33,7 @@
                             </select>
                         </div>
                         <div class="form-group">
+                          <label for="customerId">Customer</label>
                             <select name="customerId">
                                 <% customers.forEach(function (customer) {%>
                                   <option value="<%=customer.id%>"><%= customer.fullName %></option>

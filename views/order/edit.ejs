@@ -1,9 +1,9 @@
 <% include ../partials/header_order %>
     <section class="section green">
         <div class="container">
+          <h1 class="page-header">Edit Order</h1>
             <div class="row">
                 <div class="span8">
-                    <h1 class="page-header">Edit Order</h1>
                     <h3><strong>Order Id: <%= order._id %> </strong></h3>
                     <p><strong>Product: </strong>
                         <%= order.productId[0].title %>
@@ -23,23 +23,23 @@
                                 <label for="completed">Completed</label>
                                 <div class="radio">
                                     <label>
-                        <% if (order.completed == true) { %>
-                          <input type="radio" name="completed" id="true" value="true" checked="checked">
-                        <% } else { %>
-                          <input type="radio" name="completed" id="true" value="true">
-                        <% } %>
-                        True
-                      </label>
+                                      <% if (order.completed == true) { %>
+                                        <input type="radio" name="completed" id="true" value="true" checked="checked">
+                                      <% } else { %>
+                                        <input type="radio" name="completed" id="true" value="true">
+                                      <% } %>
+                                      True
+                                    </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                        <% if (order.completed == false) { %>
-                          <input type="radio" name="completed" id="false" value="false" checked="checked">
-                        <% } else { %>
-                          <input type="radio" name="completed" id="false" value="false">
-                        <% } %>
-                        False
-                      </label>
+                                      <% if (order.completed == false) { %>
+                                        <input type="radio" name="completed" id="false" value="false" checked="checked">
+                                      <% } else { %>
+                                        <input type="radio" name="completed" id="false" value="false">
+                                      <% } %>
+                                      False
+                                    </label>
                                 </div>
                             </div>
                             <div class="form-group span4">
@@ -68,6 +68,10 @@
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
+                </div>
+                <div class="span4">
+                  <a href=<%="/order/" + order._id + "/edit" %>><img src="<%= order.productId[0].imageUrl %>" class="order-image" alt="<%= order.productId[0].title %>"></a>
+
                 </div>
             </div>
         </div>

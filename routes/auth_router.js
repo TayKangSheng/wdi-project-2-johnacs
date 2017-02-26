@@ -47,6 +47,14 @@ if(!req.body.email || !req.body.password ){
 
 
 Router.post('/login',isLoggedIn, function (req, res) {
+  if(!req.body.email || !req.body.password ){
+    req.flash('flash',{
+      type: 'danger',
+      message: 'Please fill in the fields'
+    })
+    res.redirect('/login')
+    }
+
   var loginStrategy = passport.authenticate('local-login', {
     successRedirect: '/order',
     failureRedirect: '/login',
@@ -59,28 +67,11 @@ Router.post('/login',isLoggedIn, function (req, res) {
 
 Router.get('/logout', function (req, res) {
   req.logout() // remove the session => req.user = undefined, req.isAuthenticated()= false
+  req.flash('flash',{
+    type: 'success',
+    message: 'Logout successful'
+  })
   res.redirect('/login')
 })
 
 module.exports = Router
-
-
-// const express = require('express')
-// const Router = express.Router()
-// const authController = require('../controllers/auth_controller')
-//
-// Router.get('/', authController.list)
-//
-// Router.get('/new', authController.new)
-//
-// Router.get('/:id', authController.show)
-//
-// Router.get('/:id/edit', authController.edit)
-//
-// Router.post('/device', authController.create)
-//
-// Router.put('/:id', authController.update)
-//
-// Router.delete('/:id', authController.delete)
-//
-// module.exports = Router

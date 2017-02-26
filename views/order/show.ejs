@@ -1,9 +1,9 @@
 <% include ../partials/header_order %>
     <section class="section green">
         <div class="container">
+          <h1 class="page-header">Order Detail </h1>
             <div class="row">
-                <div class="span8">
-                    <h1 class="page-header">Order Detail </h1>
+                <div class="span7">
                     <h3><strong>Order Id: <%= order._id %> </strong></h3>
                     <p><strong>Product: </strong>
                         <%= order.productId[0].title %>
@@ -37,6 +37,10 @@
                     <form class="deleteForm pull-right" method="POST" action=<%="/order/" + order._id + "?_method=DELETE" %>>
                         <button type="submit" class="btn btn-danger"><i class="icon-trash"></i>Delete</button>
                     </form>
+                </div>
+                <div class="span5">
+                  <a href=<%="/order/" + order._id + "/edit" %>><img src="<%= order.productId[0].imageUrl %>" class="order-image" alt="<%= order.productId[0].title %>"></a>
+
                 </div>
             </div>
         </div>
