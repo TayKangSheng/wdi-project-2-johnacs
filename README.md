@@ -65,7 +65,7 @@ Live deployment on Heroku: https://evening-shelf-91568.herokuapp.com/
 6. Admin can add/view/edit customer
 
 #### Wireframes and Models:
-* [Wireframes and models](https://github.com/wdi-sg/wdi-project-2-johnacs/master/assets/readme/modelsnwireframes.pdf)
+* [Wireframes and models](https://github.com/wdi-sg/wdi-project-2-johnacs/master/assets/modelsnwireframes.pdf)
 
 ## Author
 * **John Ang** - *Responsible for keeping vests white and the coffee flowing* - [GithubUserName](https://github.com/johnacs)
